@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brian Khumalo | IT Professional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary: #2d3748;
+            --secondary: #4a5568;
+            --accent: #3182ce;
+            --light: #f7fafc;
+            --dark: #1a202c;
+            --gray: #e2e8f0;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--secondary);
+            background-color: var(--light);
+            font-weight: 400;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .header {
+            background-color: white;
+            padding: 3rem 0 2rem;
+            border-bottom: 1px solid var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .name-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .name-title h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            letter-spacing: -0.05rem;
+        }
+
+        .name-title .title {
+            font-size: 1.25rem;
+            color: var(--secondary);
+            font-weight: 400;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+            background-color: white;
+            padding: 1.75rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid var(--gray);
+        }
+
+        .section-title {
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title i {
+            color: var(--accent);
+            font-size: 1.25rem;
+        }
+
+        ul {
+            padding-left: 1.25rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .job-title {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .company {
+            font-weight: 500;
+            color: var(--secondary);
+        }
+
+        .date {
+            color: var(--secondary);
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .skill-category {
+            margin-bottom: 1.25rem;
+        }
+
+        .skill-category h5 {
+            border-bottom: 1px solid var(--gray);
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--gray);
+            margin-top: 3rem;
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--accent);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 100;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .print-btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 2rem 0 1.5rem;
+            }
+            
+            .name-title h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            
+            .section {
+                padding: 1.25rem;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+                font-size: 12pt;
+                color: black;
+            }
+            
+            .header {
+                padding: 0 !important;
+                border: none !important;
+            }
+            
+            .section {
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                page-break-inside: avoid;
+            }
+            
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+            
+            .no-print {
+                display: none;
+            }
+            
+            a[href]:after {
+                content: none !important;
+            }
+            
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="name-title">
+                <h1>BRIAN KHUMALO</h1>
+                <div class="title">IT Infrastructure Specialist</div>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="bi bi-telephone"></i>
+                    <span>069 133 9743</span>
+                </div>
+                <div class="contact-item">
+                    <i class="bi bi-envelope"></i>
+                    <span>briankhumalo94@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="bi bi-geo-alt"></i>
+                    <span>Tsakane, Johannesburg East</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <section>
+                    <h2 class="section-title">
+                        <i class="bi bi-person-badge"></i>
+                        Profile
+                    </h2>
+                    <p>Experienced IT Technician with 4+ years in technical support and infrastructure management. Specialized in network configuration, system administration, and cloud computing solutions with a strong foundation in open-source technologies.</p>
+                </section>
+
+                <section>
+                    <h2 class="section-title">
+                        <i class="bi bi-award"></i>
+                        Certifications
+                    </h2>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <strong>Cisco CONAv7</strong><br>
+                            Enterprise Networking, Security and Automation<br>
+                            <small class="text-muted">2024</small>
+                        </li>
+                        <li class="mb-3">
+                            <strong>PCAP: Python</strong><br>
+                            Programming Essentials in Python<br>
+                            <small class="text-muted">2020</small>
+                        </li>
+                        <li class="mb-3">
+                            <strong>NDG Linux Essentials</strong><br>
+                            Cisco Networking Academy<br>
+                            <small class="text-muted">2017</small>
+                        </li>
+                        <li class="mb-3">
+                            <strong>CompTIA A+ Equivalent</strong><br>
+                            IT Essentials: PC Hardware & Software<br>
+                            <small class="text-muted">2016</small>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="section-title">
+                        <i class="bi bi-tools"></i>
+                        Technical Skills
+                    </h2>
+                    <div class="skill-category">
+                        <h5>Networking</h5>
+                        <ul class="list-unstyled">
+                            <li>Router/Switch Configuration</li>
+                            <li>Wireless Access Points</li>
+                            <li>Firewall Management</li>
+                            <li>Network Troubleshooting</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h5>Systems</h5>
+                        <ul class="list-unstyled">
+                            <li>Windows/Linux Administration</li>
+                            <li>Active Directory</li>
+                            <li>Microsoft 365/Azure</li>
+                            <li>System Imaging</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h5>Development</h5>
+                        <ul class="list-unstyled">
+                            <li>Python (Beginner)</li>
+                            <li>Bash/PowerShell Scripting</li>
+                            <li>Automation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h5>Hardware</h5>
+                        <ul class="list-unstyled">
+                            <li>PC Repair & Maintenance</li>
+                            <li>3D/Office Printer Repair</li>
+                            <li>IoT Device Configuration</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="section-title">
+                        <i class="bi bi-book"></i>
+                        Education
+                    </h2>
+                    <div class="mb-3">
+                        <strong>National Senior Certificate</strong><br>
+                        Asser Maloka Secondary School<br>
+                        <small class="text-muted">2012</small>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-lg-8">
+                <section>
+                    <h2 class="section-title">
+                        <i class="bi bi-briefcase"></i>
+                        Professional Experience
+                    </h2>
+                    
+                    <div class="mb-4">
+                        <div class="job-title">IT Technician</div>
+                        <div class="company">SMD Technologies Pty Ltd, Johannesburg</div>
+                        <div class="date">November 2024 - Present</div>
+                        <ul>
+                            <li>Provide comprehensive technical support for hardware, software, and network issues across the organization</li>
+                            <li>Configure and maintain network infrastructure including routers, switches, and access points</li>
+                            <li>Implement and manage IT security measures including firewalls, antivirus, and data backups</li>
+                            <li>Oversee workstation setup and deployment with standardized imaging processes</li>
+                            <li>Develop and deliver IT training programs for staff on security best practices</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="job-title">Warehouse Technician</div>
+                        <div class="company">SMD Technologies Pty Ltd, Johannesburg</div>
+                        <div class="date">July 2023 - October 2024</div>
+                        <ul>
+                            <li>Performed hardware diagnostics and repairs on PCs, laptops, and printers</li>
+                            <li>Configured networking equipment and IoT devices for client deployments</li>
+                            <li>Developed efficient system imaging processes for rapid device deployment</li>
+                            <li>Provided remote technical support using AnyDesk and TeamViewer</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="job-title">IT Technician</div>
+                        <div class="company">User Net Technologies Pty Ltd, Johannesburg</div>
+                        <div class="date">February 2021 - March 2023</div>
+                        <ul>
+                            <li>Managed Microsoft 365 environment including Active Directory and Exchange Online</li>
+                            <li>Implemented cloud solutions using Microsoft Azure services</li>
+                            <li>Monitored and optimized network performance across multiple locations</li>
+                            <li>Standardized software deployment and update processes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="job-title">IT Technician</div>
+                        <div class="company">Siyafunda CTC - ZDC Pty Ltd, Johannesburg</div>
+                        <div class="date">January 2017 - December 2020</div>
+                        <ul>
+                            <li>Built and customized computer systems according to client specifications</li>
+                            <li>Implemented wired and wireless network infrastructure</li>
+                            <li>Provided onsite and remote technical support for diverse client base</li>
+                            <li>Administered mixed Windows/Linux environment</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer no-print">
+        <div class="container">
+            <p>© <span id="current-year"></span> Brian Khumalo. All rights reserved.</p>
+            <p class="text-muted small">Last updated: June 2024</p>
+        </div>
+    </div>
+
+    <div class="print-btn no-print" onclick="window.print()" title="Print CV">
+        <i class="bi bi-printer" style="font-size: 1.25rem;"></i>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
