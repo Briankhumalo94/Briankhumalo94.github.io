@@ -3,1016 +3,434 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brian Khumalo | IT Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Brian Khumalo | IT Professional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
         :root {
-            --primary: #2563eb;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --gray: #94a3b8;
-            --accent: #3b82f6;
-            --bg-color: #f8fafc;
-            --text-color: #1e293b;
-            --card-bg: white;
-            --shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        
-        .dark-mode {
-            --primary: #3b82f6;
-            --dark: #f8fafc;
-            --light: #1e293b;
-            --gray: #64748b;
-            --accent: #60a5fa;
-            --bg-color: #0f172a;
-            --text-color: #f8fafc;
-            --card-bg: #1e293b;
-            --shadow: 0 4px 6px rgba(0,0,0,0.2);
+            --primary: #2d3748;
+            --secondary: #4a5568;
+            --accent: #3182ce;
+            --light: #f7fafc;
+            --dark: #1a202c;
+            --gray: #e2e8f0;
         }
         
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
-            transition: background-color 0.3s, color 0.3s;
+            color: var(--secondary);
+            background-color: var(--light);
+            font-weight: 400;
         }
-        
-        /* Navigation */
-        nav {
-            background: var(--card-bg);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            z-index: 100;
-            transition: background-color 0.3s;
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-weight: 700;
-            font-size: 1.5rem;
+
+        h1, h2, h3, h4, h5, h6 {
             color: var(--primary);
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        
-        /* Dark Mode Toggle */
-        .theme-toggle {
-            background: var(--card-bg);
-            border: 1px solid var(--gray);
-            color: var(--text-color);
-            border-radius: 20px;
-            padding: 5px 10px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-        
-        .theme-toggle:hover {
-            border-color: var(--primary);
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 8rem 2rem 4rem;
-            text-align: center;
-            background: linear-gradient(135deg, var(--light) 0%, var(--accent) 100%);
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--text-color);
-        }
-        
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
             font-weight: 600;
-            transition: background 0.3s;
         }
-        
-        .btn:hover {
-            background: #1d4ed8;
+
+        .header {
+            background-color: white;
+            padding: 3rem 0 2rem;
+            border-bottom: 1px solid var(--gray);
+            margin-bottom: 2rem;
         }
-        
-        .btn-outline {
-            background: transparent;
-            color: var(--primary);
-            border: 1px solid var(--primary);
-        }
-        
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
-        }
-        
-        /* Sections */
-        section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .section-title {
+
+        .name-title {
             text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-title h2 {
-            font-size: 2rem;
-            color: var(--text-color);
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title h2:after {
-            content: '';
-            position: absolute;
-            width: 60%;
-            height: 3px;
-            background: var(--primary);
-            bottom: -10px;
-            left: 20%;
-        }
-        
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-        
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-        }
-        
-        .project-img {
-            height: 200px;
-            background: var(--gray);
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .project-content {
-            padding: 1.5rem;
-        }
-        
-        .project-content h3 {
-            margin-top: 0;
-            color: var(--text-color);
-        }
-        
-        .project-content p {
-            color: var(--gray);
             margin-bottom: 1.5rem;
         }
-        
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .tag {
-            background: #e0f2fe;
-            color: var(--primary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        /* Skills */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .skill-category {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-        }
-        
-        .skill-category h3 {
-            margin-top: 0;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .skill-category ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .skill-category li {
+
+        .name-title h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            color: var(--dark);
+            letter-spacing: -0.05rem;
         }
-        
-        .skill-category i {
-            color: var(--primary);
+
+        .name-title .title {
+            font-size: 1.25rem;
+            color: var(--secondary);
+            font-weight: 400;
         }
-        
-        /* Certifications */
-        .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .cert-card {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s;
-        }
-        
-        .cert-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .cert-card img {
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
-            margin-bottom: 1rem;
-        }
-        
-        .cert-card h3 {
-            margin: 0.5rem 0;
-            color: var(--text-color);
-        }
-        
-        .cert-card p {
-            color: var(--gray);
-            margin: 0;
-        }
-        
-        /* Experience Timeline */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            padding-left: 50px;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--primary);
-        }
-        
-        .timeline-item {
-            position: relative;
-            padding-bottom: 30px;
-        }
-        
-        .timeline-date {
-            position: absolute;
-            left: -50px;
-            width: 100px;
-            text-align: right;
-            color: var(--gray);
-            font-weight: 600;
-        }
-        
-        .timeline-content {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            position: relative;
-        }
-        
-        .timeline-content::before {
-            content: '';
-            position: absolute;
-            left: -10px;
-            top: 20px;
-            width: 0;
-            height: 0;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            border-right: 10px solid var(--card-bg);
-        }
-        
-        .timeline-dot {
-            position: absolute;
-            left: 12px;
-            top: 5px;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--primary);
-            border: 3px solid var(--bg-color);
-        }
-        
-        /* Testimonials */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .testimonial-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-        }
-        
-        .quote {
-            font-style: italic;
-            margin-bottom: 1rem;
-            position: relative;
-            padding-left: 1rem;
-        }
-        
-        .quote::before {
-            content: '"';
-            position: absolute;
-            left: -5px;
-            top: -10px;
-            font-size: 3rem;
-            color: var(--primary);
-            opacity: 0.3;
-        }
-        
-        .client {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .client img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        
-        .client h4 {
-            margin: 0;
-            color: var(--text-color);
-        }
-        
-        .client p {
-            margin: 0;
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-        
-        /* Blog/Articles */
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .article-card {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s;
-        }
-        
-        .article-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .article-card h3 {
-            margin-top: 0;
-            color: var(--text-color);
-        }
-        
-        .article-card p {
-            color: var(--gray);
-            margin-bottom: 1rem;
-        }
-        
-        .article-card a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        /* CTA Section */
-        .cta {
-            text-align: center;
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: white;
-            border-radius: 8px;
-            margin: 3rem auto;
-            max-width: 1200px;
-        }
-        
-        .cta h2 {
-            margin-top: 0;
-            font-size: 2rem;
-        }
-        
-        .cta p {
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            font-size: 1.1rem;
-        }
-        
-        .cta-buttons {
+
+        .contact-info {
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
         }
-        
-        .cta .btn {
-            background: white;
-            color: var(--primary);
-        }
-        
-        .cta .btn-outline {
-            background: transparent;
-            color: white;
-            border: 1px solid white;
-        }
-        
-        .cta .btn-outline:hover {
-            background: white;
-            color: var(--primary);
-        }
-        
-        /* Contact */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-        
-        .contact-info {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-        }
-        
-        .contact-info h3 {
-            margin-top: 0;
-            color: var(--primary);
-        }
-        
+
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
+            gap: 0.5rem;
+            color: var(--secondary);
         }
-        
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 0.75rem;
-            margin-bottom: 1rem;
+
+        .section {
+            margin-bottom: 2.5rem;
+            background-color: white;
+            padding: 1.75rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
             border: 1px solid var(--gray);
-            border-radius: 6px;
-            font-family: 'Inter', sans-serif;
-            background: var(--card-bg);
-            color: var(--text-color);
         }
-        
-        .contact-form textarea {
-            height: 150px;
+
+        .section-title {
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
-        
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
+
+        .section-title i {
+            color: var(--accent);
+            font-size: 1.25rem;
+        }
+
+        ul {
+            padding-left: 1.25rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .job-title {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .company {
+            font-weight: 500;
+            color: var(--secondary);
+        }
+
+        .date {
+            color: var(--secondary);
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .skill-category {
+            margin-bottom: 1.25rem;
+        }
+
+        .skill-category h5 {
+            border-bottom: 1px solid var(--gray);
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+        }
+
+        .footer {
             text-align: center;
-            padding: 2rem;
+            padding: 2rem 0;
+            color: var(--secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--gray);
             margin-top: 3rem;
         }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 1rem 0;
-        }
-        
-        .social-links a {
+
+        .print-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--accent);
             color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 100;
+            cursor: pointer;
+            transition: all 0.2s;
         }
-        
-        .social-links a:hover {
-            color: var(--accent);
+
+        .print-btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-2px);
         }
-        
-        /* Responsive */
+
         @media (max-width: 768px) {
-            .nav-links {
+            .header {
+                padding: 2rem 0 1.5rem;
+            }
+            
+            .name-title h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            
+            .section {
+                padding: 1.25rem;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+                font-size: 12pt;
+                color: black;
+            }
+            
+            .header {
+                padding: 0 !important;
+                border: none !important;
+            }
+            
+            .section {
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                page-break-inside: avoid;
+            }
+            
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+            
+            .no-print {
                 display: none;
             }
             
-            .hero h1 {
-                font-size: 2.25rem;
+            a[href]:after {
+                content: none !important;
             }
             
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .timeline {
-                padding-left: 30px;
-            }
-            
-            .timeline-date {
-                position: relative;
-                left: auto;
-                text-align: left;
-                width: auto;
-                margin-bottom: 0.5rem;
-            }
-            
-            .timeline::before {
-                left: 10px;
-            }
-            
-            .timeline-dot {
-                left: 2px;
+            .print-btn {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">BK</div>
-            <div class="nav-links">
-                <a href="#projects">Projects</a>
-                <a href="#skills">Skills</a>
-                <a href="#experience">Experience</a>
-                <a href="#certifications">Certifications</a>
-                <a href="#testimonials">Testimonials</a>
-                <a href="#blog">Articles</a>
-                <a href="#contact">Contact</a>
-                <button class="theme-toggle" id="theme-toggle">
-                    <i class="fas fa-moon"></i> Dark Mode
-                </button>
+    <div class="header">
+        <div class="container">
+            <div class="name-title">
+                <h1>BRIAN KHUMALO</h1>
+                <div class="title">IT Technician</div>
             </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Brian Khumalo</h1>
-        <p>IT Infrastructure Specialist with expertise in network configuration, system administration, and cloud solutions</p>
-        <a href="#contact" class="btn">Get In Touch</a>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="section-title">
-            <h2>Featured Projects</h2>
-        </div>
-        
-        <div class="projects-grid">
-            <!-- Project 1 -->
-            <div class="project-card">
-                <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');"></div>
-                <div class="project-content">
-                    <h3>Network Infrastructure Upgrade</h3>
-                    <div class="project-tags">
-                        <span class="tag">Cisco</span>
-                        <span class="tag">Firewall</span>
-                        <span class="tag">Wireless</span>
-                    </div>
-                    <p>Designed and implemented a secure network infrastructure for a mid-sized company with 100+ devices.</p>
-                    <a href="#" class="btn">View Details</a>
-                </div>
-            </div>
-            
-            <!-- Project 2 -->
-            <div class="project-card">
-                <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');"></div>
-                <div class="project-content">
-                    <h3>Azure Cloud Migration</h3>
-                    <div class="project-tags">
-                        <span class="tag">Azure</span>
-                        <span class="tag">Active Directory</span>
-                        <span class="tag">PowerShell</span>
-                    </div>
-                    <p>Migrated on-premises infrastructure to Azure cloud with zero downtime for 50+ users.</p>
-                    <a href="#" class="btn">View Details</a>
-                </div>
-            </div>
-            
-            <!-- Project 3 -->
-            <div class="project-card">
-                <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80');"></div>
-                <div class="project-content">
-                    <h3>Automated Deployment System</h3>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Bash</span>
-                        <span class="tag">Linux</span>
-                    </div>
-                    <p>Created an automated imaging and deployment system that reduced setup time by 70%.</p>
-                    <a href="#" class="btn">View Details</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="section-title">
-            <h2>Technical Skills</h2>
-        </div>
-        
-        <div class="skills-container">
-            <div class="skill-category">
-                <h3><i class="fas fa-network-wired"></i> Networking</h3>
-                <ul>
-                    <li><i class="fas fa-check"></i> Cisco Router/Switch Config</li>
-                    <li><i class="fas fa-check"></i> Firewall Management</li>
-                    <li><i class="fas fa-check"></i> Wireless Networks</li>
-                    <li><i class="fas fa-check"></i> Network Troubleshooting</li>
-                </ul>
-            </div>
-            
-            <div class="skill-category">
-                <h3><i class="fas fa-server"></i> Systems</h3>
-                <ul>
-                    <li><i class="fas fa-check"></i> Windows/Linux Admin</li>
-                    <li><i class="fas fa-check"></i> Active Directory</li>
-                    <li><i class="fas fa-check"></i> Microsoft 365/Azure</li>
-                    <li><i class="fas fa-check"></i> System Imaging</li>
-                </ul>
-            </div>
-            
-            <div class="skill-category">
-                <h3><i class="fas fa-code"></i> Development</h3>
-                <ul>
-                    <li><i class="fas fa-check"></i> Python Scripting</li>
-                    <li><i class="fas fa-check"></i> Bash/PowerShell</li>
-                    <li><i class="fas fa-check"></i> Automation</li>
-                    <li><i class="fas fa-check"></i> REST APIs</li>
-                </ul>
-            </div>
-            
-            <div class="skill-category">
-                <h3><i class="fas fa-tools"></i> Hardware</h3>
-                <ul>
-                    <li><i class="fas fa-check"></i> PC Repair</li>
-                    <li><i class="fas fa-check"></i> Printer Maintenance</li>
-                    <li><i class="fas fa-check"></i> IoT Devices</li>
-                    <li><i class="fas fa-check"></i> Data Recovery</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications">
-        <div class="section-title">
-            <h2>Certifications</h2>
-        </div>
-        
-        <div class="certifications-grid">
-            <div class="cert-card">
-                <i class="fab fa-microsoft" style="font-size: 3rem; color: var(--primary);"></i>
-                <h3>IT Essentials-CompTIA A+</h3>
-                <p>Issued: October 2016</p>
-            </div>
-            
-            <div class="cert-card">
-                <i class="fas fa-shield-alt" style="font-size: 3rem; color: var(--primary);"></i>
-                <h3>NDG Linux Essentials</h3>
-                <p>Issued: June 2017</p>
-            </div>
-            
-            <div class="cert-card">
-                <i class="fas fa-shield-alt" style="font-size: 3rem; color: var(--primary);"></i>
-                <h3>PCAP: Programming Essentials in Python</h3>
-                <p>Issued: June 2020</p>
-            </div>
-            
-            <div class="cert-card">
-                <i class="fab fa-cisco" style="font-size: 3rem; color: var(--primary);"></i>
-                <h3>Cisco Certified Network Associate (CCNA)</h3>
-                <p>Issued: November 2024</p>
-            </div>
-            
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience">
-        <div class="section-title">
-            <h2>Professional Experience</h2>
-        </div>
-        
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date"> November 2024 - Present</div>
-                <div class="timeline-content">
-                    <h3>IT Technician | SMD Technologies Pty (Ltd)</h3>
-                    <ul>
-                        <li>Provide comprehensive technical support for hardware, software, and network issues across the organization</li>
-                        <li>Configure and maintain network infrastructure including routers, switches, and access points</li>
-                        <li>Managed Microsoft 365 environment including Active Directory and Exchange Online</li>
-                        <li>Implemented cloud solutions using Microsoft Azure services</li>
-                        <li>Implement and manage IT security measures including firewalls, antivirus, and data backups</li>
-                        <li>Oversee workstation setup and deployment with standardized imaging processes</li>
-                        <li>Implemented Azure AD for centralized identity management</li>
-                        <li>Develop and deliver IT training programs for staff on security best practices</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">July 2023 - October 2024</div>
-                <div class="timeline-content">
-                    <h3>Warehouse Technician | SMD Technician Pty (Ltd)</h3>
-                    <ul>
-                        <li>Performed hardware diagnostics and repairs on PCs, laptops, and printers</li>
-                        <li>Configured networking equipment and IoT devices for client deployments</li>
-                        <li>Developed efficient system imaging processes for rapid device deployment</li>
-                        <li>Provided remote technical support using AnyDesk and TeamViewer</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">February 2021 - March 2023</div>
-                <div class="timeline-content">
-                    <h3>IT Technician | User Net Technologies Pty (Ltd) Computer Repair Center</h3>
-                    <ul>
-                        <li>Diagnosed and repaired hardware issues</li>
-                        <li>Performed data recovery services</li>
-                        <li>Configured small business networks</li>
-                        <li>Provided on-site support for local businesses</li>
-                        <li>Monitored and optimized network performance across multiple locations</li>
-                        <li>Standardized software deployment and update processes</li>
-                        <li>Built and customized computer systems according to client specifications</li>
-                        <li>Implemented wired and wireless network infrastructure</li>
-                        <li>Provided onsite and remote technical support for diverse client base</li>
-                        <li>Administered mixed Windows/Linux environment</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials">
-        <div class="section-title">
-            <h2>Client Testimonials</h2>
-        </div>
-        
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="quote">"Brian's network solution transformed our business operations. His attention to detail and technical expertise ensured a seamless transition with zero downtime."</div>
-                <div class="client">
-                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client">
-                    <div>
-                        <h4>Sarah Johnson</h4>
-                        <p>CEO, TechSolutions Inc.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial-card">
-                <div class="quote">"We hired Brian to migrate our infrastructure to Azure and were impressed with his systematic approach and clear communication throughout the project."</div>
-                <div class="client">
-                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client">
-                    <div>
-                        <h4>Michael Brown</h4>
-                        <p>CTO, CloudFirst Ltd.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial-card">
-                <div class="quote">"Brian's troubleshooting skills are exceptional. He resolved issues that had stumped our internal team for weeks within hours of being engaged."</div>
-                <div class="client">
-                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client">
-                    <div>
-                        <h4>Lisa Wong</h4>
-                        <p>IT Director, FinServ Corp</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog/Articles Section -->
-    <section id="blog">
-        <div class="section-title">
-            <h2>Recent Articles</h2>
-        </div>
-        
-        <div class="articles-grid">
-            <div class="article-card">
-                <h3>5 Network Security Best Practices for SMBs</h3>
-                <p>Learn essential strategies to protect your business network without breaking the bank...</p>
-                <a href="#">Read More →</a>
-            </div>
-            
-            <div class="article-card">
-                <h3>Azure AD vs On-Prem AD: When to Use Each</h3>
-                <p>A comprehensive comparison of identity management solutions in hybrid environments...</p>
-                <a href="#">Read More →</a>
-            </div>
-            
-            <div class="article-card">
-                <h3>Automating IT Tasks with PowerShell</h3>
-                <p>Practical examples of how to save hours each week by automating common admin tasks...</p>
-                <a href="#">Read More →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <h2>Ready to Discuss Your IT Needs?</h2>
-        <p>I'm available for consulting, contract work, and full-time positions. Let's build something great together.</p>
-        <div class="cta-buttons">
-            <a href="#contact" class="btn">Hire Me</a>
-            <a href="#" class="btn btn-outline">View My Rates</a>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="section-title">
-            <h2>Get In Touch</h2>
-        </div>
-        
-        <div class="contact-container">
             <div class="contact-info">
-                <h3>Contact Information</h3>
                 <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>briankhumalo94@gmail.com</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
+                    <i class="bi bi-telephone"></i>
                     <span>069 133 9743</span>
                 </div>
                 <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
+                    <i class="bi bi-envelope"></i>
+                    <span>briankhumalo94@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="bi bi-geo-alt"></i>
                     <span>Tsakane, Johannesburg East</span>
                 </div>
                 <div class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <a href="https://www.linkedin.com/in/brian-khumalo-28357b131/" target="_blank" style="color: var(--text-color); text-decoration: none;">LinkedIn Profile</a>
+                    <i class="bi bi-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/brian-khumalo-28357b131/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
                 </div>
             </div>
-            
-            <div class="contact-form">
-                <form id="contactForm">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <input type="text" placeholder="Subject">
-                    <textarea placeholder="Your Message" required></textarea>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <section>
+                    <h2 class="section-title">
+                        <i class="bi bi-person-badge"></i>
+                        Profile
+                    </h2>
+                    <p>Experienced IT Technician with 4+ years in technical support and infrastructure management. Specialized in network configuration, system administration, and cloud computing solutions with a strong foundation in open-source technologies.</p>
+                </section>
+
+                <section>
+                    <h2 class="section-title">
+                        <i class="bi bi-award"></i>
+                        Certifications
+                    </h2>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <strong>Cisco CONAv7</strong><br>
+                            Enterprise Networking, Security and Automation<br>
+                            <small class="text-muted">2024</small>
+                        </li>
+                        <li class="mb-3">
+                            <strong>PCAP: Python</strong><br>
+                            Programming Essentials in Python<br>
+                            <small class="text-muted">2020</small>
+                        </li>
+                        <li class="mb-3">
+                            <strong>NDG Linux Essentials</strong><br>
+                            Cisco Networking Academy<br>
+                            <small class="text-muted">2017</small>
+                        </li>
+                        <li class="mb-3">
+                            <strong>CompTIA A+ Equivalent</strong><br>
+                            IT Essentials: PC Hardware & Software<br>
+                            <small class="text-muted">2016</small>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="section-title">
+                        <i class="bi bi-tools"></i>
+                        Technical Skills
+                    </h2>
+                    <div class="skill-category">
+                        <h5>Networking</h5>
+                        <ul class="list-unstyled">
+                            <li>Router/Switch Configuration</li>
+                            <li>Wireless Access Points</li>
+                            <li>Firewall Management</li>
+                            <li>Network Troubleshooting</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h5>Systems</h5>
+                        <ul class="list-unstyled">
+                            <li>Windows/Linux Administration</li>
+                            <li>Active Directory</li>
+                            <li>Microsoft 365/Azure</li>
+                            <li>System Imaging</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h5>Development</h5>
+                        <ul class="list-unstyled">
+                            <li>Python (Beginner)</li>
+                            <li>Bash/PowerShell Scripting</li>
+                            <li>Automation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h5>Hardware</h5>
+                        <ul class="list-unstyled">
+                            <li>PC Repair & Maintenance</li>
+                            <li>3D/Office Printer Repair</li>
+                            <li>IoT Device Configuration</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="section-title">
+                        <i class="bi bi-book"></i>
+                        Education
+                    </h2>
+                    <div class="mb-3">
+                        <strong>National Senior Certificate</strong><br>
+                        Asser Maloka Secondary School<br>
+                        <small class="text-muted">2012</small>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-lg-8">
+                <section>
+                    <h2 class="section-title">
+                        <i class="bi bi-briefcase"></i>
+                        Professional Experience
+                    </h2>
+                    
+                    <div class="mb-4">
+                        <div class="job-title">IT Technician</div>
+                        <div class="company">SMD Technologies Pty Ltd, Johannesburg</div>
+                        <div class="date">November 2024 - Present</div>
+                        <ul>
+                            <li>Provide comprehensive technical support for hardware, software, and network issues across the organization</li>
+                            <li>Configure and maintain network infrastructure including routers, switches, and access points</li>
+                            <li>Implement and manage IT security measures including firewalls, antivirus, and data backups</li>
+                            <li>Oversee workstation setup and deployment with standardized imaging processes</li>
+                            <li>Develop and deliver IT training programs for staff on security best practices</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="job-title">Warehouse Technician</div>
+                        <div class="company">SMD Technologies Pty Ltd, Johannesburg</div>
+                        <div class="date">July 2023 - October 2024</div>
+                        <ul>
+                            <li>Performed hardware diagnostics and repairs on PCs, laptops, and printers</li>
+                            <li>Configured networking equipment and IoT devices for client deployments</li>
+                            <li>Developed efficient system imaging processes for rapid device deployment</li>
+                            <li>Provided remote technical support using AnyDesk and TeamViewer</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="job-title">IT Technician</div>
+                        <div class="company">User Net Technologies Pty Ltd, Johannesburg</div>
+                        <div class="date">February 2021 - March 2023</div>
+                        <ul>
+                            <li>Managed Microsoft 365 environment including Active Directory and Exchange Online</li>
+                            <li>Implemented cloud solutions using Microsoft Azure services</li>
+                            <li>Monitored and optimized network performance across multiple locations</li>
+                            <li>Standardized software deployment and update processes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="job-title">IT Technician</div>
+                        <div class="company">Siyafunda CTC - ZDC Pty Ltd, Johannesburg</div>
+                        <div class="date">January 2017 - December 2020</div>
+                        <ul>
+                            <li>Built and customized computer systems according to client specifications</li>
+                            <li>Implemented wired and wireless network infrastructure</li>
+                            <li>Provided onsite and remote technical support for diverse client base</li>
+                            <li>Administered mixed Windows/Linux environment</li>
+                        </ul>
+                    </div>
+                </section>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>© <span id="year"></span> Brian Khumalo. All rights reserved.</p>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-medium"></i></a>
+    <div class="footer no-print">
+        <div class="container">
+            <p>© <span id="current-year"></span> Brian Khumalo. All rights reserved.</p>
+            <p class="text-muted small">Last updated: June 2025</p>
         </div>
-        <p>Designed with ♥ by Brian Khumalo</p>
-    </footer>
+    </div>
 
+    <div class="print-btn no-print" onclick="window.print()" title="Print CV">
+        <i class="bi bi-printer" style="font-size: 1.25rem;"></i>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Current year for footer
-        document.getElementById('year').textContent = new Date().getFullYear();
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
         
-        // Smooth scrolling for navigation
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
             });
-        });
-        
-        // Dark mode toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        const icon = themeToggle.querySelector('i');
-        
-        // Check for saved user preference
-        if (localStorage.getItem('theme') === 'dark') {
-            document.body.classList.add('dark-mode');
-            icon.classList.replace('fa-moon', 'fa-sun');
-            themeToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
-        }
-        
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            
-            if (document.body.classList.contains('dark-mode')) {
-                icon.classList.replace('fa-moon', 'fa-sun');
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                icon.classList.replace('fa-sun', 'fa-moon');
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
-                localStorage.setItem('theme', 'light');
-            }
-        });
-        
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            this.reset();
         });
     </script>
 </body>
